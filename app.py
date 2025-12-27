@@ -13,6 +13,11 @@ def before_request():
         data=request.get_data(),
         headers=request.headers
     )
+    print(f'Forwarded {request.method} {request.path} - Response: {response.status_code}')
+    print(f'response content: {response.content}')
+    print(f'response headers: {response.headers}')
+    print(f'request path: {request.path}')
+    print(f'request method: {request.method}')
     return response.content, response.status_code, {"Content-Type": response.headers.get("Content-Type")}
 
 
